@@ -1,0 +1,5 @@
+package com.art_gallery.repository;
+
+public class ArtworkRepository {
+
+}

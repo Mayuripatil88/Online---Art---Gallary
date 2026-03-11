@@ -1,0 +1,5 @@
+package com.art_gallery.entity;
+
+public class Artwork {
+
+}

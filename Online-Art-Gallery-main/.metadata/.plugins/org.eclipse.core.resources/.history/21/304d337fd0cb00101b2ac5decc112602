@@ -1,0 +1,16 @@
+package com.art_gallery.repository;
+
+import java.util.List;
+
+import com.art_gallery.entity.Artwork;
+
+//import com.art_gallery.enitiy.Artwork;
+
+public class ArtworkRepository {
+
+	public List<Artwork> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

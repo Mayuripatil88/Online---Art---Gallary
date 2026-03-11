@@ -1,0 +1,27 @@
+package com.art_gallery.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.art_gallery.enitiy.Artwork;
+import com.art_gallery.repository.ArtworkRepository;
+import com.art_gallery.serviceImpl.ArtworkServiceImpl;
+
+@Service
+public class ArtworkServiceImpl implements ArtworkServiceImpl {
+
+    @Autowired
+    private ArtworkRepository artworkRepository;
+
+    @Override
+    public List<Artwork> getAllArtworks() {
+        return artworkRepository.findAll();
+    }
+
+    @Override
+    public Artwork createArtwork(Artwork artwork) {
+        return artworkRepository.save(artwork);
+    }
+}

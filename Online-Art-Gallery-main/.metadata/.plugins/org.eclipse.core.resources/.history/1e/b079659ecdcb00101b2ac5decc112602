@@ -1,0 +1,40 @@
+package com.art_gallery.enitiy;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "orders")
+public class Order {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    // many orders belong to one user
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    // many orders belong to one artwork
+    @ManyToOne
+    @JoinColumn(name = "artwork_id", nullable = false)
+    private Artwork artwork;
+
+    @Column(name = "order_date", nullable = false)
+    private LocalDate orderDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "ENUM('pending','approved','rejected','shipped','delivered') default 'pending'")
+    private Status status = Status.pending;
+
+    public enum Status {
+        pending, approved, rejected, shipped, delivered
+    }
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    // getters & setters
+}

@@ -1,0 +1,38 @@
+package com.art_gallery.enitiy;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+@Entity
+@Table(name = "users")
+@Data
+public class User {
+
+    public enum Role { customer, admin }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "ENUM('customer','admin') default 'customer'")
+    private Role role = Role.customer;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+}

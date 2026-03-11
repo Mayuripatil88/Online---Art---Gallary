@@ -1,0 +1,5 @@
+package com.art_gallery.serviceImpl;
+
+public class ArtworkServiceImpl {
+
+}

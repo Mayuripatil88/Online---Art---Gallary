@@ -1,0 +1,13 @@
+package com.art_gallery.serviceImpl;
+
+import java.util.List;
+
+import com.art_gallery.enitiy.Artwork;
+
+public interface ArtworkServiceImpl {
+
+	List<Artwork> getAllArtworks();
+
+	Artwork createArtwork(Artwork artwork);
+
+}
